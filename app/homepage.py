@@ -1,7 +1,9 @@
-from flask import render_template
-from app import app  # Import the app object from the current package
+from flask import Blueprint, render_template
+
+# Create a Blueprint for this route
+homepage_app = Blueprint('homepage', __name__)
 
 
-@app.route('/')
+@homepage_app.route('/')
 def homepage():
-    return render_template('homepage.html')
+    return render_template('Home/homepage.html')
