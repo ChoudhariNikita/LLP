@@ -1,115 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Language Learning Platform</title>
+{% extends "base.html" %} {% block title %}Home - FluentFusion{% endblock %} {%
+block content %}
+<!-- Hero Section and other homepage content goes here -->
+<div class="hero bg-primary text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4">Learn a New Language Today</h1>
+    <p class="lead">
+      Unlock new opportunities by mastering a foreign language with our expert
+      courses.
+    </p>
+    <a href="#" class="btn btn-light btn-lg">Get Started</a>
+  </div>
+</div>
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">FluentFusion</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Courses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero bg-primary text-white text-center py-5">
-      <div class="container">
-        <h1 class="display-4">Learn a New Language Today</h1>
-        <p class="lead">
-          Unlock new opportunities by mastering a foreign language with our
-          expert courses.
-        </p>
-        <a href="#" class="btn btn-light btn-lg">Get Started</a>
-      </div>
-    </div>
-
-    <!-- Featured Courses Section -->
-    <div class="container my-5">
-      <h2 class="text-center mb-4">Featured Courses</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <img src="course1.jpg" alt="Course 1" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">Spanish for Beginners</h5>
-              <p class="card-text">Start your journey to fluency in Spanish.</p>
-              <a href="#" class="btn btn-primary">Enroll Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <img src="course2.jpg" alt="Course 2" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">French Conversation</h5>
-              <p class="card-text">Improve your French speaking skills.</p>
-              <a href="#" class="btn btn-primary">Enroll Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <img src="course3.jpg" alt="Course 3" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">Mandarin for Business</h5>
-              <p class="card-text">
-                Learn Mandarin to excel in international business.
-              </p>
-              <a href="#" class="btn btn-primary">Enroll Now</a>
-            </div>
-          </div>
+<!-- Featured Courses Section -->
+<div class="container my-5">
+  <h2 class="text-center mb-4">Featured Courses</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="course1.jpg" alt="Course 1" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">Spanish for Beginners</h5>
+          <p class="card-text">Start your journey to fluency in Spanish.</p>
+          <a href="#" class="btn btn-primary">Enroll Now</a>
         </div>
       </div>
     </div>
-
-    <!-- Footer Section -->
-    <footer class="bg-dark text-white text-center py-4">
-      <div class="container">
-        <p>&copy; 2023 FLUENT FUSION</p>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="course2.jpg" alt="Course 2" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">French Conversation</h5>
+          <p class="card-text">Improve your French speaking skills.</p>
+          <a href="#" class="btn btn-primary">Enroll Now</a>
+        </div>
       </div>
-    </footer>
-
-    <!-- Bootstrap JS (jQuery and Popper.js) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="course3.jpg" alt="Course 3" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">Mandarin for Business</h5>
+          <p class="card-text">
+            Learn Mandarin to excel in international business.
+          </p>
+          <a href="#" class="btn btn-primary">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
