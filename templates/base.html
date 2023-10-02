@@ -13,11 +13,19 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
+    <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}""></script>
   </head>
   <body>
     <!-- Navbar -->
+    <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
+        <img
+          src="{{ url_for('static', filename='images/Home/logo11.png') }}"
+          alt="FluentFusion Logo"
+          width="100"
+          height="100"
+        />
         <a class="navbar-brand" href="#">FluentFusion</a>
         <button
           class="navbar-toggler"
@@ -58,10 +66,17 @@
         <p>&copy; 2023 FLUENT FUSION</p>
       </div>
     </footer>
-
+  </div>
     <!-- Bootstrap JS (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Loader with Logo -->
+    <!-- <div id="loader">
+      <img
+        src="{{ url_for('static', filename='images/Home/logo11.png') }}"
+        alt="Loader Logo"
+      />
+    </div> -->
   </body>
 </html>

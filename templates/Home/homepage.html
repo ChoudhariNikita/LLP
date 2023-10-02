@@ -1,8 +1,15 @@
 {% extends "base.html" %} {% block title %}Home - FluentFusion{% endblock %} {%
-block content %}
+block styles %} <link rel="stylesheet" href="theme.css" />
+<!-- Link to the Bootstrap theme CSS file -->
+<link
+  href="{{ url_for('static', filename='css/dashboard_styles.css') }}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block content %}
 <!-- Hero Section and other homepage content goes here -->
 <div class="hero bg-primary text-white text-center py-5">
   <div class="container">
+    <!-- Add logo here -->
     <h1 class="display-4">Learn a New Language Today</h1>
     <p class="lead">
       Unlock new opportunities by mastering a foreign language with our expert
