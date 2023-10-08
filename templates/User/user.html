@@ -50,6 +50,25 @@
                         </li>
                         <li class="nav-item">
                             <b>
+                                <a class="nav-link" href="/courses"> Courses</a>
+                            </b>
+                        </li>
+                        <!-- User Dropdown Menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa4-user-circle"></i> <!-- Font Awesome user icon -->
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">Username</a>
+                                <a class="dropdown-item" href="/profile">Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </div>
+                        </li>
+                        <!-- End User Dropdown Menu -->
+                        <!-- <li class="nav-item">
+                            <b>
                                 <a class="nav-link" href="/login">Signin</a>
                         </li>
                         </b>
@@ -64,7 +83,7 @@
                             <b>
                                 <a class="nav-link" href="/admindashboard">Admin</a>
                         </li>
-                        </b>
+                        </b> -->
 
                     </ul>
                 </div>
@@ -72,8 +91,47 @@
         </nav>
 
 <div class="container-fluid">
-    <p>hello</p>
+    <!-- Hero Section and other homepage content goes here -->
+<div class="hero bg-white text-black text-center py-5">
+    <div class="container">
+      <!-- Add logo here -->
+      
+      <h3 class="display-4">
+        <b>
+
+            Welcome😀 Username</h3>
+        </b>
+      <p class="lead">
+        <i>
+
+            Every step you take in your learning journey brings you closer to your goals. Keep moving forward and never stop learning.
+        </i>
+        
+        </p>
+    </div><br><hr><br>
+    <a href="#" class="btn btn-outline-dark btn-lg text-center">Continue Learning >></a>
 </div>
+<br>
+<div class="card">
+    <h4 class="card-header ">Registered Courses</h4>
+    <div class="card-body">
+        <h5 class="card-title">Your Registered courses</h5>
+        <p class="card-text">Aapko bhi pata hai and as a admin muze bhi theek hai, ki kitna courses mai aapne enroll kiyaa hai, so no hoshiyaari thikk hai, achhe bacche ki tarahh niche view button diya hai click karo and confirmation ke liye dekhh lo.</p>
+        <a href="/reg_courses" class="btn btn-primary">View</a>
+    </div>
+</div>
+<br>
+<div class="card">
+    <h4 class="card-header">View Courses</h4>
+    <div class="card-body">
+        <h5 class="card-title">Browse Our Course Catalog</h5>
+        <p class="card-text">Jitna courses dikhh raha haii utne mai hii khushh raho theek haii, kyukii lalach burii balaa haii, and ekk time mai ekk hi kaam karna chahiye theek haii, baaat ko samjo.</p>
+        <a href="/courses" class="btn btn-primary">View</a>
+    </div>
+</div>
+<br>
+</div>
+
 
         <!-- Footer Section -->
         <footer class="bg-dark text-white text-center py-4 p-md-3">
@@ -86,7 +144,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     </body>
 
 </html>
