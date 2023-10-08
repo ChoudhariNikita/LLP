@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}FluentFusion{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}FluentFusion{% endblock %}</title>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
-    
-    <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}""></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}""></script>
   </head>
   <body>
     <!-- Navbar -->
-    <div id="content">
+    <div id=" content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <img
@@ -54,8 +52,14 @@
               <a class="nav-link" href="/contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login">Signin</a>
-            </li>
+              <a class="nav-link" href="/login">Signin</a></li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/userdashboard">user</a></li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="/admindashboard">Admin</a></li>
+            
           </ul>
         </div>
       </div>
@@ -73,14 +77,15 @@
   </div>
     <!-- Bootstrap JS (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Loader with Logo -->
-    <!-- <div id="loader">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Loader with Logo -->
+  <!-- <div id="loader">
       <img
         src="{{ url_for('static', filename='images/Home/logo11.png') }}"
         alt="Loader Logo"
       />
     </div> -->
   </body>
+
 </html>
