@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}Home - FluentFusion{% endblock %} {%
-block styles %} <link rel="stylesheet" href="theme.css" />
+block styles %} 
 <!-- Link to the Bootstrap theme CSS file -->
 <link
   href="{{ url_for('static', filename='css/style.css') }}"
@@ -14,7 +14,7 @@ block styles %} <link rel="stylesheet" href="theme.css" />
     <p class="lead">
       "In a nutshell, it means you can start learning a language right now with us."
     </p>
-    <a href="#" class="btn btn-light btn-lg">Get Started</a>
+    <a href="/login" class="btn btn-light btn-lg">Get Started</a>
   </div>
 </div>
 
