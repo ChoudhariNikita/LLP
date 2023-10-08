@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}FluentFusion{% endblock %}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}FluentFusion{% endblock %}</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-  <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}""></script>
+    <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}""></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -57,20 +57,20 @@
                 <a class="nav-link" href="/contact">Contact</a>
               </b>
             </li>
-            <li class="nav-item">
-              <b>
-                <a class="nav-link" href="/login">Signin</a></li>
-              </b>
-
-              <li class="nav-item">
-               <b>
-                 <a class="nav-link" href="/userdashboard">user</a></li>
-               </b>
-
-              <li class="nav-item">
-                <b>
-                  <a class="nav-link" href="/admindashboard">Admin</a></li>
-                </b> 
+            <!-- User Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa4-user-circle"></i> <!-- Font Awesome user icon -->
+                </a>
+                <div class="dropdown-menu" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">Username</a>
+                    <a class="dropdown-item" href="/profile">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </li>
+            <!-- End User Dropdown Menu -->
             
           </ul>
         </div>
@@ -89,9 +89,9 @@
   </div>
     <!-- Bootstrap JS (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
 
 </html>
