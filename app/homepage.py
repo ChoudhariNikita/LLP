@@ -29,8 +29,8 @@ def login():
 
 @homepage_app.route('/userdashboard')
 def user():
-    return render_template('user/user_dash.html')
+    return render_template('user/user.html')
 
 @homepage_app.route('/admindashboard')
 def admin():
-    return render_template('admin/admin_dash.html')
+    return render_template('admin/admin.html')
