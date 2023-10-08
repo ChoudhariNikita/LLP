@@ -26,3 +26,11 @@ def register():
 @homepage_app.route('/login')
 def login():
     return render_template('home/login.html')
+
+@homepage_app.route('/userdashboard')
+def user():
+    return render_template('user/user_dash.html')
+
+@homepage_app.route('/admindashboard')
+def admin():
+    return render_template('admin/admin_dash.html')
