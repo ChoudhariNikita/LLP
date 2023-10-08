@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+
+
 div.image_class{
     width: 100px;
 }
@@ -14,6 +16,9 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
+#contact{
+  width: auto;
+}
 .container {
   position: relative;
   width: 100%;
@@ -21,6 +26,9 @@ input {
   min-height: 100vh;
   overflow: hidden;
 }
+
+
+
 
 .forms-container {
   position: absolute;

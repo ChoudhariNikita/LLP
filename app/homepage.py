@@ -21,4 +21,8 @@ def contact():
 
 @homepage_app.route('/register')
 def register():
-    return render_template('Home/register.html')
+    return render_template('home/register.html')
+
+@homepage_app.route('/login')
+def login():
+    return render_template('home/login.html')
