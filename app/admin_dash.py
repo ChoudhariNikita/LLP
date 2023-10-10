@@ -16,3 +16,10 @@ def manage_users():
 def manage_courses():
     return render_template('Admin/manage_courses.html')
 
+@admin_dashboard_app.route('/add_user')
+def add_user():
+    return render_template('Admin/add_user.html')
+
+@admin_dashboard_app.route('/add_course')
+def add_course():
+    return render_template('Admin/add_course.html')
