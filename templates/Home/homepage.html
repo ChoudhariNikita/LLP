@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}Home - FluentFusion{% endblock %} {%
-block styles %} 
+block styles %}
 <!-- Link to the Bootstrap theme CSS file -->
 <link
   href="{{ url_for('static', filename='css/style.css') }}"
@@ -12,7 +12,8 @@ block styles %}
     <!-- Add logo here -->
     <h1 class="display-4">Learn a New Language Today</h1>
     <p class="lead">
-      "In a nutshell, it means you can start learning a language right now with us."
+      "In a nutshell, it means you can start learning a language right now with
+      us."
     </p>
     <a href="/login" class="btn btn-light btn-lg">Get Started</a>
   </div>
@@ -24,31 +25,53 @@ block styles %}
   <div class="row">
     <div class="col-md-4">
       <div class="card mb-4">
-        <img  src="/static/images/course1.jpeg" alt="Course 1" class="card-img-top" />
+        <img
+          src="/static/images/Home/course1.jpeg"
+          alt="Course 1"
+          class="card-img-top"
+        />
         <div class="card-body">
           <h5 class="card-title">English for Beginners</h5>
-          <p class="card-text">Start learning English basics with our 'English for Beginners' course. Learn essential English skills and build a strong foundation for effective communication</p>
+          <p class="card-text">
+            Start learning English basics with our 'English for Beginners'
+            course. Learn essential English skills and build a strong foundation
+            for effective communication
+          </p>
           <a href="/login" class="btn btn-primary">Enroll Now</a>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4">
-        <img src="/static/images/course2.jpeg" alt="Course 2" class="card-img-top" />
+        <img
+          src="/static/images/Home/course2.jpeg"
+          alt="Course 2"
+          class="card-img-top"
+        />
         <div class="card-body">
           <h5 class="card-title">French for Foreign Conversation</h5>
-          <p class="card-text">Begin your French language adventure with our 'French for Beginners' course. Discover the essentials of French communication and lay the groundwork for fluent speaking and understanding</p>
+          <p class="card-text">
+            Begin your French language adventure with our 'French for Beginners'
+            course. Discover the essentials of French communication and lay the
+            groundwork for fluent speaking and understanding
+          </p>
           <a href="/login" class="btn btn-primary">Enroll Now</a>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4">
-        <img src="/static/images/course3.jpeg" alt="Course 3" class="card-img-top" />
+        <img
+          src="/static/images/Home/course3.jpeg"
+          alt="Course 3"
+          class="card-img-top"
+        />
         <div class="card-body">
           <h5 class="card-title">Hindi for Daily Conversation</h5>
           <p class="card-text">
-            Kickstart your Hindi language learning journey with our 'Hindi for Beginners' course. Explore the key aspects of Hindi language and develop a strong base for confident speaking and comprehension
+            Kickstart your Hindi language learning journey with our 'Hindi for
+            Beginners' course. Explore the key aspects of Hindi language and
+            develop a strong base for confident speaking and comprehension
           </p>
           <a href="/login" class="btn btn-primary">Enroll Now</a>
         </div>
