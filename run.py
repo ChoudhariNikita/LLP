@@ -1,7 +1,8 @@
 from app.homepage import homepage_app
 from app.user_dash import user_dashboard_app
 from app.admin_dash import admin_dashboard_app
-from flask import Flask
+from flask import Flask, Blueprint
+
 
 app = Flask(__name__)
 
