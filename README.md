@@ -4,6 +4,20 @@ Welcome to the Language Learning Platform (LLP) repository! LLP is a fantastic w
 
 ## 🚀 Installation
 
+****Database - MySql****
+*for registration and login purpose*
+CREATE DATABASE fluentfusion;
+
+USE fluentfusion;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+
 Getting started with LLP is a piece of cake! First, make sure you have Python 3.x installed on your system. Then, install the required dependencies by running this command:
 
 ```bash
@@ -48,6 +62,13 @@ pip install -r requirements.txt
 ## 🤝 Contributing
 
 We're thrilled to welcome contributions from the community! If you encounter any issues or have brilliant ideas for improvement, please don't hesitate to open an issue or submit a pull request. Your input is invaluable to us. 🙌
+
+Contributors:
+- [Ankush Tiwari](https://github.com/tiwaribro)
+- [Nikita Choudhari](https://github.com/ChoudhariNikita)
+- [Gayatri Yaul](https://github.com/gayatriyaul)
+
+
 
 ## 📄 License
 

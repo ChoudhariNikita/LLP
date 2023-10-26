@@ -45,14 +45,21 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
+
+        if email == "admin@fluentfusion.com" and password == "admin":
+            return redirect(url_for(''))  # Redirect to the admin dashboard
+
         cursor = db.cursor()
         cursor.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
         user = cursor.fetchone()
+
         if user:
             return "Login successful"
         else:
             return "Login failed"
+
     return render_template('login.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
