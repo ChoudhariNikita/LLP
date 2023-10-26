@@ -3,6 +3,7 @@ from app.user_dash import user_dashboard_app
 from app.admin_dash import admin_dashboard_app
 from flask import Flask
 
+
 app = Flask(__name__)
 
 app.register_blueprint(homepage_app)
