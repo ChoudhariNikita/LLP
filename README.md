@@ -63,6 +63,13 @@ pip install -r requirements.txt
 
 We're thrilled to welcome contributions from the community! If you encounter any issues or have brilliant ideas for improvement, please don't hesitate to open an issue or submit a pull request. Your input is invaluable to us. 🙌
 
+Contributors:
+- [Ankush Tiwari](https://github.com/tiwaribro)
+- [Nikita Choudhari](https://github.com/ChoudhariNikita)
+- [Gayatri Yaul](https://github.com/gayatriyaul)
+
+
+
 ## 📄 License
 
 This project is proudly licensed under the MIT License. Feel free to use and modify it as needed to meet your specific requirements. 📜
