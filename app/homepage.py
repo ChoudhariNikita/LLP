@@ -1,5 +1,7 @@
 import mysql.connector
 from flask import Flask, Blueprint, request, render_template, redirect, url_for
+from flask import flash
+import re
 
 # Create a Blueprint for this route
 homepage_app = Blueprint('homepage', __name__)
@@ -25,28 +27,33 @@ def contact():
     return render_template('Home/contact.html')
 
 
-@homepage_app.route('/register')
+@homepage_app.route('/register_page', methods=['GET', 'POST'])
 def register_page():
-    return render_template('home/register.html')
+    return render_template('Home/register.html')
 
 
-@homepage_app.route('/login')
+@homepage_app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('home/login.html')
+    return render_template('Home/login.html')
 
 
 @homepage_app.route('/userdashboard')
 def user():
-    return render_template('user/user.html')
+    return render_template('User/user.html')
 
 
 @homepage_app.route('/admindashboard')
 def admin():
-    return render_template('admin/admin.html')
+    flash('Welcome Admin!')
+    return render_template('Admin/admin.html')
+
+
+# @homepage_app.app_errorhandler(404)
+# def page_not_found(error):
+#     return render_template('page_not_found.html'), 404
 
 
 app = Flask(__name__)
-app.register_blueprint(homepage_app)
 
 # Establish connection
 mydb = mysql.connector.connect(
@@ -64,8 +71,20 @@ mycursor = mydb.cursor()
 
 def add_user(name, email, password, country):
     # Simple password security check
-    if len(password) < 6:
-        return "Password should be at least 6 characters long."
+    if len(password) < 8:
+        return "Password should be at least 8 characters long."
+
+    mycursor.execute("SELECT * FROM User WHERE email = %s", (email,))
+    existing_user = mycursor.fetchone()
+    if existing_user:
+        flash("Account already exists. Please try logging in.")
+        return render_template('Home/login.html')
+    elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+        flash('Invalid email address !')
+    elif not re.match(r'[A-Za-z0-9]+', password):
+        flash('Password must contain characters and numbers!')
+    elif not name or not password or not email:
+        flash('Please fill out the form !')
 
     sql = "INSERT INTO User (name, email, password, country) VALUES (%s, %s, %s, %s)"
     val = (name, email, password, country)
@@ -73,29 +92,31 @@ def add_user(name, email, password, country):
     mydb.commit()
 
 # Registration route
-# Registration route
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register_user():
+@homepage_app.route('/register', methods=['GET', 'POST'])
+def register():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
+        country = request.form['country']
 
         try:
-            # Replace "Country" with the actual country
-            add_user(name, email, password, "Country")
-            return redirect(url_for('login'))
+            print(f"Received data: {name}, {email}, {password}, {country}")
+            add_user(name, email, password, country)
+            flash('You have successfully registered!')
+            return render_template('Home/login.html')
         except Exception as e:
-            return "Registration failed: " + str(e)
+            print(f"Registration failed: {e}")
+            flash(f"Registration failed: {e}")
 
-    return render_template('register.html')
+    return render_template('Home/register.html')
 
 # Login route
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@homepage_app.route('/login', methods=['GET', 'POST'])
 def user_login():
     if request.method == 'POST':
         email = request.form['email']
@@ -103,19 +124,20 @@ def user_login():
 
         if email == "admin@fluentfusion.com" and password == "fluentadmin@123":
             # Redirect to the admin dashboard
-            return redirect(url_for('admin'))
+            return render_template('Admin/admin.html')
 
-        cursor = mydb.cursor()
-        cursor.execute(
-            "SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
-        user = cursor.fetchone()
+        mycursor = mydb.cursor()
+        mycursor.execute(
+            "SELECT * FROM User WHERE email = %s AND password = %s", (email, password))
+        user = mycursor.fetchone()
 
         if user:
-            return "Login successful"
+            return redirect(url_for('user'))
         else:
-            return "Login failed"
+            flash("Login failed: User not found.")
+            return render_template('Home/login.html')
 
-    return render_template('login.html')
+    return render_template('Admin/admin.html')
 
 
 if __name__ == '__main__':
