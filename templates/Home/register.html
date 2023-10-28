@@ -1,11 +1,10 @@
-{% extends "base.html" %} {% block title %}Contact Us - FluentFusion{% endblock
+{% extends "base.html" %} {% block title %} Register - FluentFusion{% endblock
 %} {% block content %}
-<!-- Contact Us content goes here -->
-<!-- Contact Us Section -->
+
 <section id="register" class="bg-light py-5">
   <div class="container">
     <h2 class="mb-4 text-center">Register here</h2>
-    <form id="registrationForm" action="/register" method="POST">
+    <form id="registrationForm">
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -63,6 +62,7 @@
       <hr />
     </form>
     <b><p>Already Have an Account?</p></b>
+
     <a href="/login"
       ><button type="button" class="btn btn-outline-primary">Login</button></a
     >
