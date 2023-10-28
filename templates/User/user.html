@@ -63,7 +63,7 @@
                                 <a class="dropdown-item" href="#">Username</a>
                                 <a class="dropdown-item" href="/profile">Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </li>
                         <!-- End User Dropdown Menu -->
@@ -95,11 +95,30 @@
 <div class="hero bg-white text-black text-center py-5">
     <div class="container">
       <!-- Add logo here -->
-      
+      <div>
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissable" role="alert">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="close"
+            >
+              <span aria-hidden="true">x</span>
+            </button>
+            {{ message }}
+          </div>
+  
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+      </div>
       <h3 class="display-4">
         <b>
 
-            Welcome😀 Username</h3>
+            Welcome😀 {{ data }} </h3>
         </b>
       <p class="lead">
         <i>

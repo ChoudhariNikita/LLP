@@ -15,6 +15,7 @@ function checkPasswordMatch() {
     } else {
         passwordMessage.innerHTML = 'Passwords do not match!!';
         passwordMessage.style.color = 'red';
+        passhelp2.style.color='purple';
     }
 
     if (!passwordRegex.test(password)) {

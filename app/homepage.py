@@ -2,6 +2,9 @@ import mysql.connector
 from flask import Flask, Blueprint, request, render_template, redirect, url_for
 from flask import flash
 import re
+import logging
+from flask import session
+
 
 # Create a Blueprint for this route
 homepage_app = Blueprint('homepage', __name__)
@@ -76,6 +79,7 @@ def add_user(name, email, password, country):
 
     mycursor.execute("SELECT * FROM User WHERE email = %s", (email,))
     existing_user = mycursor.fetchone()
+
     if existing_user:
         flash("Account already exists. Please try logging in.")
         return render_template('Home/login.html')
@@ -116,29 +120,49 @@ def register():
 # Login route
 
 
-@homepage_app.route('/login', methods=['GET', 'POST'])
+@homepage_app.route('/user_login', methods=['GET', 'POST'])
 def user_login():
-    if request.method == 'POST':
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
         password = request.form['password']
 
-        if email == "admin@fluentfusion.com" and password == "fluentadmin@123":
-            # Redirect to the admin dashboard
-            return render_template('Admin/admin.html')
+        print(f"Received data: {email}, {password}")
 
         mycursor = mydb.cursor()
         mycursor.execute(
-            "SELECT * FROM User WHERE email = %s AND password = %s", (email, password))
+            "SELECT * FROM user WHERE email = %s AND password = %s", (email, password))
         user = mycursor.fetchone()
 
         if user:
-            return redirect(url_for('user'))
+            if email == "admin@fluentfusion.com":
+                print("Admin user logged in successfully!")
+                session['loggedin'] = True
+                session['username'] = 'Admin'  # Set the username as 'Admin'
+                return render_template('Admin/admin.html')
+            else:
+                print("Regular user logged in successfully!")
+                user_name = user[1]  # Extract the user's name
+                session['loggedin'] = True
+                # Set the username from the database
+                session['username'] = user_name
+                flash(f'Logged in successfully as {user_name}!')
+                return render_template('User/user.html', data=user_name)
         else:
-            flash("Login failed: User not found.")
-            return render_template('Home/login.html')
+            print('Incorrect username / password! Unable to log in.')
+            flash('Incorrect username / password! Sorry, we cannot let you login!')
+    return render_template('Home/login.html')
 
-    return render_template('Admin/admin.html')
+# Logout route
+
+
+@homepage_app.route('/logout')
+def logout():
+    # Remove the session variables
+    session.pop('loggedin', None)
+    session.pop('username', None)
+    flash('You have been logged out successfully!')
+    return render_template('Home/login.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=3000)
