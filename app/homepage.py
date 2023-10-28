@@ -1,10 +1,13 @@
 import mysql.connector
-from flask import Flask, Blueprint, request, render_template
-from config import MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB
-import hashlib
+from flask import Flask, Blueprint, request, render_template, redirect, url_for
 
 # Create a Blueprint for this route
 homepage_app = Blueprint('homepage', __name__)
+
+MYSQL_HOST = 'localhost'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = 'adminroot@123'
+MYSQL_DB = 'fluentfusion'
 
 
 @homepage_app.route('/')
@@ -60,35 +63,59 @@ mycursor = mydb.cursor()
 
 
 def add_user(name, email, password, country):
-    hashed_password = hashlib.sha256(
-        password.encode()).hexdigest()  # Hash the password
+    # Simple password security check
+    if len(password) < 6:
+        return "Password should be at least 6 characters long."
+
     sql = "INSERT INTO User (name, email, password, country) VALUES (%s, %s, %s, %s)"
-    val = (name, email, hashed_password, country)
+    val = (name, email, password, country)
     mycursor.execute(sql, val)
     mydb.commit()
 
-# Route to handle the registration form submission
+# Registration route
+# Registration route
 
 
-def register():
+@app.route('/register', methods=['GET', 'POST'])
+def register_user():
     if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        confirm_password = request.form.get('confirmPassword')
-        country = request.form.get('country')
+        name = request.form['name']
+        email = request.form['email']
+        password = request.form['password']
 
-        # Simple form validation example
-        if not all([name, email, password, confirm_password, country]):
-            return "Please fill in all the fields."
+        try:
+            # Replace "Country" with the actual country
+            add_user(name, email, password, "Country")
+            return redirect(url_for('login'))
+        except Exception as e:
+            return "Registration failed: " + str(e)
 
-        if password != confirm_password:
-            return "Passwords do not match."
+    return render_template('register.html')
 
-        # Add the user if validation passes
-        add_user(name, email, password, country)
-        print("User details added to the database.")
-        return "User successfully registered."
+# Login route
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def user_login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        if email == "admin@fluentfusion.com" and password == "fluentadmin@123":
+            # Redirect to the admin dashboard
+            return redirect(url_for('admin'))
+
+        cursor = mydb.cursor()
+        cursor.execute(
+            "SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+        user = cursor.fetchone()
+
+        if user:
+            return "Login successful"
+        else:
+            return "Login failed"
+
+    return render_template('login.html')
 
 
 if __name__ == '__main__':

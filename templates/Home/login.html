@@ -1,33 +1,47 @@
-{% extends "base.html" %} {% block title %}login- FluentFusion{% endblock
-%} {% block content %}
+{% extends "base.html" %} {% block title %}login- FluentFusion{% endblock %} {%
+block content %}
 
 <section id="login" class="bg-light py-5">
-    <div class="container">
-        <h2 class="mb-4 text-center">Login here</h2>
-        <form id="loginForm">
+  <div class="container">
+    <h2 class="mb-4 text-center">Login here</h2>
+    <form id="loginForm" action="/login" method="post">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-
-
-            <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
-            <br><br>
-            <hr>
-            
-        </form>
-        <b>
-            <p>Not Have an Account?</p>
-        </b>
-        <a href="/register"><button  type="button" class="btn btn-outline-primary">Register</button></a>
-        
-    </div>
-    <script src=" {{ url_for('static', filename='js/Home/login_script.js' ) }}"></script>
+      <button type="submit" class="btn btn-primary" id="loginButton">
+        Login
+      </button>
+      <br /><br />
+      <hr />
+    </form>
+    <b>
+      <p>Not Have an Account?</p>
+    </b>
+    <a href="/register"
+      ><button type="button" class="btn btn-outline-primary">
+        Register
+      </button></a
+    >
+  </div>
+  <script src=" {{ url_for('static', filename='js/Home/login_script.js' ) }}"></script>
 </section>
 
 {% endblock %}
