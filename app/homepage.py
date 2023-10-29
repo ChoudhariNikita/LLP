@@ -2,7 +2,6 @@ import mysql.connector
 from flask import Flask, Blueprint, request, render_template, redirect, url_for
 from flask import flash
 import re
-import logging
 from flask import session
 
 

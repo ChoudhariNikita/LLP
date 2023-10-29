@@ -1,39 +1,53 @@
-{% extends "base_admin.html" %} {% block title %}Manage Courses - FluentFusion{% endblock
+{% extends "base.html" %} {% block title %}Add Course - FluentFusion{% endblock
 %} {% block content %}
 
-<section id="register" class="bg-light py-5">
-    <div class="container">
-        <h2 class="mb-4 text-center">Add Course</h2>
-        <form id="registrationForm">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-                <span id="passwordMessage"></span>
-            </div>
-            <div class="form-group">
-                <label for="country">Country:</label>
-                <input type="text" class="form-control" id="country" name="country">
-            </div>
-            <button type="submit" class="btn btn-primary" id="registerButton" disabled>Register</button>
-            <br>
-            <hr>
-
-        </form>
-        
+<h2 class="mb-4">Add Course</h2>
+<div>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="close"
+      >
+        <span aria-hidden="true">x</span>
+      </button>
+      {{ message }}
     </div>
-    <script src="{{ url_for('static', filename='js/Home/login_script.js') }}"></script>
-</section>
+
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+</div>
+<form action="/add_course" method="POST">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" id="title" name="title" required />
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea
+      class="form-control"
+      id="description"
+      name="description"
+      rows="3"
+      required
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="teacher_id">Teacher ID:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="teacher_id"
+      name="teacher_id"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 {% endblock %}
