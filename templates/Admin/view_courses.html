@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}View Courses - FluentFusion{%
+{% extends "base_admin.html" %} {% block title %}View Courses - FluentFusion{%
 endblock %} {% block content %}
 <div>
   {% with messages = get_flashed_messages() %} {% if messages %}
@@ -24,6 +24,7 @@ endblock %} {% block content %}
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">Course ID</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Teacher ID</th>
@@ -33,14 +34,15 @@ endblock %} {% block content %}
   <tbody>
     {% for course in courses %}
     <tr>
-      <td>{{ course.title }}</td>
-      <td>{{ course.description }}</td>
-      <td>{{ course.teacher_id }}</td>
+      <td>{{ course[0] }}</td>
+      <td>{{ course[1] }}</td>
+      <td>{{ course[2] }}</td>
+      <td>{{ course[3]}}</td>
       <td>
-        <a href="/update_course/{{ course.course_id }}" class="btn btn-primary"
+        <a href="/update_course/{{ course[0] }}" class="btn btn-primary"
           >Update</a
         >
-        <a href="/delete_course/{{ course.course_id }}" class="btn btn-danger"
+        <a href="/delete_course/{{ course[0] }}" class="btn btn-danger"
           >Delete</a
         >
       </td>

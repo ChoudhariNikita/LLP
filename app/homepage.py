@@ -128,6 +128,7 @@ def user_login():
         print(f"Received data: {email}, {password}")
 
         mycursor = mydb.cursor()
+
         mycursor.execute(
             "SELECT * FROM user WHERE email = %s AND password = %s", (email, password))
         user = mycursor.fetchone()
@@ -136,6 +137,7 @@ def user_login():
             if email == "admin@fluentfusion.com":
                 print("Admin user logged in successfully!")
                 session['loggedin'] = True
+                session['id'] = user[0]
                 session['username'] = 'Admin'  # Set the username as 'Admin'
                 return render_template('Admin/admin.html')
             else:
