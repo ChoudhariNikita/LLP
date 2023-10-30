@@ -1,4 +1,4 @@
-{% extends "base_admin.html" %} {% block title %}View Courses - FluentFusion{%
+{% extends "base_admin.html" %} {% block title %}View Teachers - FluentFusion{%
 endblock %} {% block content %}
 <div>
   {% with messages = get_flashed_messages() %} {% if messages %}
@@ -19,42 +19,44 @@ endblock %} {% block content %}
   </ul>
   {% endif %} {% endwith %}
 </div>
-<h2 class="mb-4">Courses List</h2>
+<h2 class="mb-4">Teachers List</h2>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Course ID</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
       <th scope="col">Teacher ID</th>
+      <th scope="col">Teacher Name</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Major Subject</th>
+      <th scope="col">Ratings</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    {% for course in courses %}
+    {% for teacher in teachers %}
     <tr>
-      <td>{{ course[0] }}</td>
-      <td>{{ course[1] }}</td>
-      <td>{{ course[2] }}</td>
-      <td>{{ course[3] }}</td>
+      <td>{{ teacher[0] }}</td>
+      <td>{{ teacher[1] }}</td>
+      <td>{{ teacher[2] }}</td>
+      <td>{{ teacher[3] }}</td>
+      <td>{{ teacher[4] }}</td>
       <td>
         <form
           id="updateform"
-          action="/update_course_page/{{ course[0] }}"
+          action="/update_teacher_page/{{ teacher[0] }}"
           method="GET"
         >
           <input type="submit" value="Update" class="btn btn-primary" />
         </form>
         <form
           id="deleteForm"
-          action="/delete_course/{{ course[0] }}"
+          action="/delete_teacher/{{ teacher[0] }}"
           method="post"
         >
           <input
             type="submit"
             value="Delete"
             class="btn btn-danger"
-            onclick="return confirm('Are you sure you want to delete this user?');"
+            onclick="return confirm('Are you sure you want to delete this teacher?');"
           />
         </form>
       </td>

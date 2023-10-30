@@ -94,6 +94,7 @@ def profile():
     try:
         # Fetch the user ID using the correct key
         user_id = session.get('id', None)
+        print(user_id)
         if user_id:
             mycursor.execute(
                 "SELECT name, email, country FROM user WHERE id = %s", (user_id,))

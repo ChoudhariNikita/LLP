@@ -1,7 +1,7 @@
-{% extends "base_admin.html" %} {% block title %}Add Course - FluentFusion{%
+{% extends "base_admin.html" %} {% block title %}Add Teacher - FluentFusion{%
 endblock %} {% block content %}
 
-<h2 class="mb-4">Add Course</h2>
+<h2 class="mb-4">Add Teacher</h2>
 <div>
   {% with messages = get_flashed_messages() %} {% if messages %}
   <ul>
@@ -22,28 +22,45 @@ endblock %} {% block content %}
   </ul>
   {% endif %} {% endwith %}
 </div>
-<form action="/add_course" method="POST">
+<form action="/add_teacher" method="POST">
   <div class="form-group">
-    <label for="title">Title:</label>
-    <input type="text" class="form-control" id="title" name="title" required />
-  </div>
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <textarea
+    <label for="teacher_name">Teacher Name:</label>
+    <input
+      type="text"
       class="form-control"
-      id="description"
-      name="description"
-      rows="3"
+      id="teacher_name"
+      name="teacher_name"
       required
-    ></textarea>
+    />
   </div>
   <div class="form-group">
-    <label for="teacher_id">Teacher ID:</label>
+    <label for="qualification">Qualification:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="qualification"
+      name="qualification"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="major_subject">Major Subject:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="major_subject"
+      name="major_subject"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="ratings">Ratings:</label>
     <input
       type="number"
+      step="0.01"
       class="form-control"
-      id="teacher_id"
-      name="teacher_id"
+      id="ratings"
+      name="ratings"
       required
     />
   </div>

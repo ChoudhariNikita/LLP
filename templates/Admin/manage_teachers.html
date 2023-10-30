@@ -1,0 +1,36 @@
+{% extends "base_admin.html" %} {% block title %}Manage Teachers -
+FluentFusion{% endblock %} {% block content %}
+<br />
+<h1>Manage Teachers</h1>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="/static/images/Home/user.jpg"
+        class="card-img"
+        alt="Teacher Image"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Teacher Management</h5>
+        <p class="card-text">
+          This section allows you to manage teachers effectively. You can view,
+          edit, and delete teacher information based on your requirements. Stay
+          organized and maintain a seamless teacher management system.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Actions</h2>
+<a href="/add_teacher">
+  <button type="button" class="btn btn-warning"><b>Add Teacher</b></button>
+</a>
+<a href="/view_teachers">
+  <button type="button" class="btn btn-warning"><b>View Teachers</b></button>
+</a>
+
+<br /><br />
+{% endblock %}
