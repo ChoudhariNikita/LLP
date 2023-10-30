@@ -1,156 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Admin-Dashboard </title>
+    <title>Admin-Dashboard</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}"></script>
-    </head>
-
-
-<body>
+  <body>
     <!-- Navbar -->
-    <div id=" content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <img src="{{ url_for('static', filename='images/Home/logo11.png') }}" alt="FluentFusion Logo"
-                    width="100" height="100" />
-                <b class="logo_text">
-
-                    <a class="navbar-brand" href="/">FluentFusion</a>
-                </b>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <b>
-                                <a class="nav-link" href="/">Home</a>
-                            </b>
-                        </li>
-                        <li class="nav-item">
-                            <b>
-                                <a class="nav-link" href="/about">About</a>
-                            </b>
-                        </li>
-                        <li class="nav-item">
-                            <b>
-                                <a class="nav-link" href="/contact">Contact</a>
-                            </b>
-                        </li>
-                        <li class="nav-item">
-                            <b>
-                                <a class="nav-link" href="/manage_users"> Manage Users</a>
-                            </b>
-                        </li>
-                        <li class="nav-item">
-                            <b>
-                                <a class="nav-link" href="/manage_courses"> Manage Courses</a>
-                            </b>
-                        </li>
-                        <!-- User Dropdown Menu -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa4-user-circle"></i> <!-- Font Awesome user icon -->
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="/change_password">Change Password</a>
-                                <a class="dropdown-item" href="/logout">Logout</a>
-
-                            </div>
-                        </li>
-                        <!-- End User Dropdown Menu -->
-                        
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-<div class="container-fluid">
-    <!-- Hero Section and other homepage content goes here -->
-<div class="hero bg-white text-black text-center py-5">
-    <div class="container">
-      <!-- Add logo here -->
-      <div>
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul>
-          {% for message in messages %}
-          <div class="alert alert-success alert-dismissable" role="alert">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="close"
-            >
-              <span aria-hidden="true">x</span>
-            </button>
-            {{ message }}
-          </div>
-  
-          {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
-      </div>
-      <h3 class="display-4">
-        <b>
-           ⭐ &middot; Admin Dashboard &middot; ⭐</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <img
+          src="{{ url_for('static', filename='images/Home/logo11.png') }}"
+          alt="FluentFusion Logo"
+          width="100"
+          height="100"
+        />
+        <b class="logo_text">
+          <a class="navbar-brand" href="/">FluentFusion</a>
         </b>
-      <p class="lead">
-        <i>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <b
+                ><a class="nav-link" href="/"
+                  ><i class="fas fa-home"></i>Home</a
+                ></b
+              >
+            </li>
+            <li class="nav-item">
+              <b
+                ><a class="nav-link" href="/about"
+                  ><i class="fas fa-info-circle"></i>About</a
+                ></b
+              >
+            </li>
+            <li class="nav-item">
+              <b
+                ><a class="nav-link" href="/contact"
+                  ><i class="fas fa-address-book"></i>Contact</a
+                ></b
+              >
+            </li>
+            <li class="nav-item">
+              <b
+                ><a class="nav-link" href="/manage_users"
+                  ><i class="fas fa-users-cog"></i>Manage Users</a
+                ></b
+              >
+            </li>
+            <li class="nav-item">
+              <b
+                ><a class="nav-link" href="/manage_courses"
+                  ><i class="fas fa-book"></i>Manage Courses</a
+                ></b
+              >
+            </li>
+            <!-- User Dropdown Menu -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="userDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user-circle"></i>
+                <!-- Font Awesome user icon -->
+              </a>
+              <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="/change_password"></a>
+                  <i class="fas fa-key"></i>Change Password</a
+                >
+                <a class="dropdown-item" href="/logout"
+                  ><i class="fas fa-sign-out-alt"></i>Logout</a
+                >
+              </div>
+            </li>
+            <!-- End User Dropdown Menu -->
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-            Every step you take in your teaching journey brings your learners closer to their goals.
-        </i>
-        
-        </p>
-    </div><br><hr>
-    <!-- <a href="#" class="btn btn-outline-dark btn-lg text-center">Continue Learning >></a> -->
-</div>
-
-<div class="card">
-    <h4 class="card-header ">Users</h4>
-    <div class="card-body">
-        <h5 class="card-title">Manage Users [CRUD]</h5>
-        <p class="card-text">Welcome to the user management section. This is where you can create, read, update, and delete user information. Handle all user-related activities efficiently and effectively.</p>
-        <a href="/manage_users" class="btn btn-primary">Manage</a>
-    </div>
-</div>
-<br>
-<div class="card">
-    <h4 class="card-header">Courses &mid; Lessons</h4>
-    <div class="card-body">
-        <h5 class="card-title">Manage Courses [CRUD]</h5>
-        <p class="card-text">Welcome to the course management section. This is where you can create, read, update, and delete course information along with their lessons. Ensure smooth management of all your educational content and materials.</p>
-        <a href="/manage_courses" class="btn btn-primary">Manage</a>
-    </div>
-</div>
-<br>
-</div>
-
-
-        <!-- Footer Section -->
-        <footer class="bg-dark text-white text-center py-4 p-md-3">
-            <div class="container">
-                <p>&copy; 2023 FLUENT FUSION &middot; ALL RIGHTS RESERVED </p>
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="hero bg-white text-black text-center py-5">
+        <div>
+          <!-- Flash Messages -->
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <ul>
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissable" role="alert">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="close"
+              >
+                <span aria-hidden="true">x</span>
+              </button>
+              {{ message }}
             </div>
-        </footer>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endwith %}
+        </div>
+        <h3 class="display-4">
+          <b>⭐ &middot; Admin Dashboard &middot; ⭐</b>
+        </h3>
+        <p class="lead">
+          <i
+            >Every step you take in your teaching journey brings your learners
+            closer to their goals.</i
+          >
+        </p>
+        <hr />
+      </div>
+
+      <!-- User Management Card -->
+      <div class="card">
+        <h4 class="card-header">Users</h4>
+        <div class="card-body">
+          <h5 class="card-title">Manage Users [CRUD]</h5>
+          <p class="card-text">
+            Welcome to the user management section. This is where you can
+            create, read, update, and delete user information. Handle all
+            user-related activities efficiently and effectively.
+          </p>
+          <a href="/manage_users" class="btn btn-primary">Manage</a>
+        </div>
+      </div>
+
+      <!-- Courses Management Card -->
+      <div class="card">
+        <h4 class="card-header">Courses &mid; Lessons</h4>
+        <div class="card-body">
+          <h5 class="card-title">Manage Courses [CRUD]</h5>
+          <p class="card-text">
+            Welcome to the course management section. This is where you can
+            create, read, update, and delete course information along with their
+            lessons. Ensure smooth management of all your educational content
+            and materials.
+          </p>
+          <a href="/manage_courses" class="btn btn-primary">Manage</a>
+        </div>
+      </div>
     </div>
-        <!-- Bootstrap JS (jQuery and Popper.js) -->
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-4 p-md-3">
+      <div class="container">
+        <p>&copy; 2023 FLUENT FUSION &middot; ALL RIGHTS RESERVED</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    </body>
-
+  </body>
 </html>

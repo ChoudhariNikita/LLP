@@ -1,14 +1,35 @@
-{% extends "base_admin.html" %} {% block title %}Manage Courses - FluentFusion{% endblock
-%} {% block content %}
-<br>
+{% extends "base_admin.html" %} {% block title %}Manage Courses - FluentFusion{%
+endblock %} {% block content %}
+<br />
 <h1>Manage Courses</h1>
 <div class="card mb-3">
-    <img width="auto" height="400px" src="/static/images/course.jfif" class="card-img-top" alt="...">
-    
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="/static/images/Home/course.jfif"
+        class="card-img"
+        alt="User Image"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Course Management</h5>
+        <p class="card-text">
+          This section allows you to manage courses effectively. You can view,
+          edit, and delete course information based on your requirements. Stay
+          organized and maintain a seamless course management system.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<h2>Temporory btn</h2>
-<a href="/add_course"><button type="button" class="btn btn-warning" ><b>Add Course</b></button></a>
-<br><br>
-
+<h2>Actions</h2>
+<a href="/add_course"
+  ><button type="button" class="btn btn-warning"><b>Add Course</b></button></a
+>
+<a href="/view_courses"
+  ><button type="button" class="btn btn-warning"><b>View Courses</b></button></a
+>
+<br /><br />
 {% endblock %}
