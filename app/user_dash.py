@@ -19,9 +19,9 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 
-@user_dashboard_app.route('/user')
-def user_dash():
-    return render_template('user/user_dash.html')
+# @user_dashboard_app.route('/user')
+# def user_dash():
+#     return render_template('user/user_dash.html')
 
 
 @user_dashboard_app.route('/change_password', methods=['GET', 'POST'])
@@ -69,11 +69,49 @@ def courses():
     return render_template('user/courses.html')
 
 
+@user_dashboard_app.route('/view_courses')
+def view_courses():
+    try:
+        mycursor.execute("SELECT * FROM course")
+        courses = mycursor.fetchall()
+        print(courses)
+        return render_template('user/courses.html', courses=courses)
+    except mysql.connector.Error as err:
+        flash(f"An error occurred: {err}", 'error')  # Flash error message
+        return render_template('user/courses.html')
+
+
 @user_dashboard_app.route('/reg_courses')
 def reg_courses():
     return render_template('user/reg_courses.html')
 
 
+user_data = {}
+
+
 @user_dashboard_app.route('/profile')
 def profile():
-    return render_template('user/profile.html')
+    try:
+        # Fetch the user ID using the correct key
+        user_id = session.get('id', None)
+        if user_id:
+            mycursor.execute(
+                "SELECT name, email, country FROM user WHERE id = %s", (user_id,))
+            user = mycursor.fetchall()
+            # print("\n--->")
+            # print(user)
+            if user:
+                return render_template('User/profile.html', user=user)
+            else:
+                flash('User not found', 'error')
+                return render_template('User/profile.html')
+        else:
+            flash('User not logged in', 'error')
+            return render_template('User/profile.html')
+    except mysql.connector.Error as err:
+        flash(f"An error occurred: {err}", 'error')
+        return render_template('User/profile.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

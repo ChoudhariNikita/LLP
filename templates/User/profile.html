@@ -1,6 +1,26 @@
-{% extends "base_user.html" %} {% block title %}Profile - FluentFusion{% endblock
-    %} {% block content %}
+{% extends "base_user.html" %} {% block title %}Profile - FluentFusion{%
+endblock %} {% block content %}
 
 <h1>Profile</h1>
+
+<div>
+  <h2>User's Name: {{ user[0] }}</h2>
+  <img
+    src="dummy_profile_pic.jpg"
+    alt="Profile Picture"
+    style="width: 100px; height: 100px"
+  />
+  <p>Email: {{ user[1] }}</p>
+  <p>Location: {{ user[2] }}</p>
+  <p>
+    Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+</div>
+
+<div>
+  <h3>Motivating Quote:</h3>
+  <p>"The only way to do great work is to love what you do." - Steve Jobs</p>
+</div>
 
 {% endblock %}
