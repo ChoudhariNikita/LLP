@@ -139,6 +139,7 @@ def user_login():
                 session['loggedin'] = True
                 session['id'] = user[0]
                 session['username'] = 'Admin'  # Set the username as 'Admin'
+                flash(f'Logged in successfully as Admin!! ')
                 return render_template('Admin/admin.html')
             else:
                 print("Regular user logged in successfully!")

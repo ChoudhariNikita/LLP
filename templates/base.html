@@ -1,97 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}FluentFusion{% endblock %}</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}FluentFusion{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/Home/style.css') }}"
+    />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <script type="js" href="{{ url_for('static', filename='js/Home/app.js') }}""></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
   </head>
+
   <body>
     <!-- Navbar -->
-    <div id=" content">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <img
-          src="{{ url_for('static', filename='images/Home/logo11.png') }}"
-          alt="FluentFusion Logo"
-          width="100"
-          height="100"
-        />
-        <b class="logo_text">
-
-          <a class="navbar-brand" href="/" >FluentFusion</a>
-        </b>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <b>
-                <a class="nav-link" href="/">Home</a>
-              </b>
-            </li>
-            <li class="nav-item">
-              <b>
-                <a class="nav-link" href="/about">About</a>
-              </b>
-            </li>
-            <li class="nav-item">
-              <b>
-                <a class="nav-link" href="/contact">Contact</a>
-              </b>
-            </li>
-            <li class="nav-item">
-              <b>
-                <a class="nav-link" href="/login">Sign in</a></li>
-              </b>
-
-              <!-- <li class="nav-item">
-               <b>
-                 <a class="nav-link" href="/userdashboard">User</a></li>
-               </b>
-
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <img
+            src="{{ url_for('static', filename='images/Home/logo11.png') }}"
+            alt="FluentFusion Logo"
+            width="100"
+            height="100"
+          />
+          <b class="logo_text">
+            <a class="navbar-brand" href="/">FluentFusion</a>
+          </b>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <b>
-                  <a class="nav-link" href="/admindashboard">Admin</a></li>
-                </b>  -->
-            
-          </ul>
+                  <a class="nav-link" href="/"
+                    ><i class="fas fa-home"></i> Home</a
+                  >
+                </b>
+              </li>
+              <li class="nav-item">
+                <b>
+                  <a class="nav-link" href="/about"
+                    ><i class="fas fa-info-circle"></i> About</a
+                  >
+                </b>
+              </li>
+              <li class="nav-item">
+                <b>
+                  <a class="nav-link" href="/contact"
+                    ><i class="fas fa-address-book"></i> Contact</a
+                  >
+                </b>
+              </li>
+              <li class="nav-item">
+                <b>
+                  <a class="nav-link" href="/login"
+                    ><i class="fas fa-sign-in-alt"></i> Sign in</a
+                  ></b
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Content -->
-    <div class="container-fluid">{% block content %}{% endblock %}</div>
+      <!-- Content -->
+      <div class="container-fluid">{% block content %}{% endblock %}</div>
 
-    <!-- Footer Section -->
-    <footer class="bg-dark text-white text-center py-4 p-md-3">
-      <div class="container">
-        <p>&copy; 2023 FLUENT FUSION &middot; ALL RIGHTS RESERVED </p>
-      </div>
-    </footer>
-  </div>
+      <!-- Footer Section -->
+      <footer class="bg-dark text-white text-center py-4 p-md-3">
+        <div class="container">
+          <p>&copy; 2023 FLUENT FUSION &middot; ALL RIGHTS RESERVED</p>
+        </div>
+      </footer>
+    </div>
     <!-- Bootstrap JS (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
-
 </html>
