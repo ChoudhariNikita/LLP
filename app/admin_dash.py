@@ -1,3 +1,4 @@
+# Import necessary libraries
 from flask import redirect, url_for
 import mysql.connector
 from flask import Flask, render_template, request, flash, Blueprint, session
@@ -5,14 +6,17 @@ from flask import Flask, render_template, request, flash, Blueprint, session
 # Create a Blueprint for this route
 admin_dashboard_app = Blueprint('admin_dashboard', __name__)
 
+# Create a Flask app instance
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Add your own secret key
+app.secret_key = 'fluentfusionsuccess'  # Add your own secret key
 
+# Configure the MySQL connection
 MYSQL_HOST = 'localhost'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'adminroot@123'
 MYSQL_DB = 'fluentfusion'
 
+# Establish a connection to the MySQL database
 mydb = mysql.connector.connect(
     host=MYSQL_HOST,
     user=MYSQL_USER,
@@ -20,6 +24,7 @@ mydb = mysql.connector.connect(
     database=MYSQL_DB
 )
 
+# Create a cursor object for database operations
 mycursor = mydb.cursor()
 
 
