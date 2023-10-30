@@ -6,7 +6,7 @@ from flask import Flask, Blueprint
 
 app = Flask(__name__)
 
-app.secret_key = 'your secret key'
+app.secret_key = 'Fluentfusion123'
 
 app.register_blueprint(homepage_app)
 app.register_blueprint(user_dashboard_app)
