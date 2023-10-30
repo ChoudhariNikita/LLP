@@ -24,7 +24,7 @@ mycursor = mydb.cursor()
 #     return render_template('user/user_dash.html')
 
 
-@user_dashboard_app.route('/change_password', methods=['GET', 'POST'])
+@user_dashboard_app.route('/change_pass', methods=['GET', 'POST'])
 def change_password():
     if request.method == 'POST':
         current_password = request.form['current_password']
